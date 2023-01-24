@@ -11,6 +11,3 @@ steps:
 
 #- name: 'gcr.io/cloud-builders/gcloud'
 #  args: ['run', 'deploy', 'nextjs-cloudrun-app', '--image', 'gcr.io/tough-bearing-364504/nextjs-cloudrun-app', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
-
-images:
-  - gcr.io/tough-bearing-364504/nextjs-cloudrun-app
