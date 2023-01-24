@@ -15,7 +15,7 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to Infomation Technology <br />
           ChiangMai Technical Colleges.<br />
-          http://it.cmtc.ac.th
+          http://it.cmtc.ac.th/index.php
         </h1>
       </main>
 
