@@ -1,6 +1,35 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/tough-bearing-364504/nextjs-cloudrun-app', '.']
+  # build the container images
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      ["build", "-t", "gcr.io/tough-bearing-364504/nextjs-cloudrun-app", "."]
+
+  # push the container images to Container Registry
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/tough-bearing-364504/nextjs-cloudrun-app"]
+
+  # Deploy container images to Cloud Run
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      [
+        "run",
+        "deploy",
+        "nextjs-cloudrun-app",
+        "--image",
+        "gcr.io/tough-bearing-364504/nextjs-cloudrun-app",
+        "--region",
+        "us-central1",
+        "--platform",
+        "managed",
+        "--quiet",
+        "--allow-unauthenticated",
+      ]
+images:
+  - gcr.io/tough-bearing-364504/nextjs-cloudrun-app
+
+#steps:
+#- name: 'gcr.io/cloud-builders/docker'
+#  args: ['build', '-t', 'gcr.io/tough-bearing-364504/nextjs-cloudrun-app', '.']
 
 #- name: 'gcr.io/cloud-builders/gcloud'
 #  args: ['run', 'deploy', 'nextjs-cloudrun-app', '--image', 'gcr.io/tough-bearing-364504/nextjs-cloudrun-app', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
