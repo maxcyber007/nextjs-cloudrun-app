@@ -13,7 +13,8 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to Infomation Technology CMTC
+          Welcome to Infomation Technology <br />
+          ChiangMai Technical Colleges.
         </h1>
       </main>
 
